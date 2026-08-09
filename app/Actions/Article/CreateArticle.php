@@ -11,7 +11,9 @@ class CreateArticle
     {
         $article = $this->handle($request->validated());
 
-        return response()->json($article, 201);
+        return (new ArticleResource($article))
+            ->response()
+            ->setStatusCode(201);
     }
 
     public function handle(array $data): Article

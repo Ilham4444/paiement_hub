@@ -8,7 +8,7 @@ class ListObjets
 {
     public function __invoke()
     {
-        return response()->json($this->handle());
+        return ObjetResource::collection($this->handle());
     }
 
     public function handle()

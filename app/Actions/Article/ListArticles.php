@@ -8,7 +8,7 @@ class ListArticles
 {
     public function __invoke()
     {
-        return response()->json($this->handle());
+       return ArticleResource::collection($this->handle());
     }
 
     public function handle()

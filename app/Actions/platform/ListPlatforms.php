@@ -8,7 +8,7 @@ class ListPlatforms
 {
     public function __invoke()
     {
-        return response()->json($this->handle());
+         return PlatformResource::collection($this->handle());
     }
 
     public function handle()

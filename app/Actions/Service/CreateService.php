@@ -11,7 +11,9 @@ class CreateService
     {
         $service = $this->handle($request->validated());
 
-        return response()->json($service, 201);
+        return (new ServiceResource($service))
+            ->response()
+            ->setStatusCode(201);
     }
 
     public function handle(array $data): Service

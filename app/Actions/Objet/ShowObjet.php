@@ -8,7 +8,7 @@ class ShowObjet
 {
     public function __invoke(Objet $objet)
     {
-        return response()->json($this->handle($objet));
+        return new ObjetResource($this->handle($objet));
     }
 
     public function handle(Objet $objet): Objet

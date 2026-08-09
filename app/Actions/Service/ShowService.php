@@ -8,7 +8,7 @@ class ShowService
 {
     public function __invoke(Service $service)
     {
-        return response()->json($this->handle($service));
+        return new ServiceResource($this->handle($service));
     }
 
     public function handle(Service $service): Service

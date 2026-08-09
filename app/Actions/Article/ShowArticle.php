@@ -8,7 +8,7 @@ class ShowArticle
 {
     public function __invoke(Article $article)
     {
-        return response()->json($this->handle($article));
+       return new ArticleResource($this->handle($article));
     }
 
     public function handle(Article $article): Article

@@ -11,7 +11,9 @@ class CreatePaymentOrder
     {
         $paymentOrder = $this->handle($request->validated());
 
-        return response()->json($paymentOrder, 201);
+        return (new PaymentOrderResource($paymentOrder))
+            ->response()
+            ->setStatusCode(201);
     }
 
     public function handle(array $data): PaymentOrder

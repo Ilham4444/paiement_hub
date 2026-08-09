@@ -11,7 +11,9 @@ class CreateAssociation
     {
         $association = $this->handle($request->validated());
 
-        return response()->json($association, 201);
+           return (new AssociationResource($association))
+            ->response()
+            ->setStatusCode(201);
     }
 
     public function handle(array $data): Association

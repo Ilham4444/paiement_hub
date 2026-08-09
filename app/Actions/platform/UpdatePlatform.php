@@ -11,7 +11,12 @@ class UpdatePlatform
     {
         $updated = $this->handle($platform, $request->validated());
 
-        return response()->json($updated);
+        if ($request->hasFile('logo')) {
+            $updated->clearMediaCollection('logo'); 
+            $updated->addMediaFromRequest('logo')->toMediaCollection('logo');
+        }
+ 
+        return new PlatformResource($updated);
     }
 
     public function handle(Platform $platform, array $data): Platform

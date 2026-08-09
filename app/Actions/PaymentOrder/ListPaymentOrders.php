@@ -8,7 +8,7 @@ class ListPaymentOrders
 {
     public function __invoke()
     {
-        return response()->json($this->handle());
+       return PaymentOrderResource::collection($this->handle());
     }
 
     public function handle()

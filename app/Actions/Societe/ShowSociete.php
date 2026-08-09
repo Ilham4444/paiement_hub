@@ -8,7 +8,7 @@ class ShowSociete
 {
     public function __invoke(Societe $societe)
     {
-        return response()->json($this->handle($societe));
+       return new SocieteResource($this->handle($societe));
     }
 
     public function handle(Societe $societe): Societe

@@ -8,7 +8,7 @@ class ShowPayment
 {
     public function __invoke(Payment $payment)
     {
-        return response()->json($this->handle($payment));
+         return new PaymentResource($this->handle($payment));
     }
 
     public function handle(Payment $payment): Payment

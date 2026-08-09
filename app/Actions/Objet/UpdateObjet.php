@@ -11,7 +11,8 @@ class UpdateObjet
     {
         $updated = $this->handle($objet, $request->validated());
 
-        return response()->json($updated);
+        
+        return new ObjetResource($updated);
     }
 
     public function handle(Objet $objet, array $data): Objet

@@ -11,7 +11,7 @@ class UpdateSociete
     {
         $updated = $this->handle($societe, $request->validated());
 
-        return response()->json($updated);
+        return new SocieteResource($updated);
     }
 
     public function handle(Societe $societe, array $data): Societe

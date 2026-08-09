@@ -11,7 +11,7 @@ class UpdatePersonnePhysique
     {
         $updated = $this->handle($personnePhysique, $request->validated());
 
-        return response()->json($updated);
+          return new PersonnePhysiqueResource($updated);
     }
 
     public function handle(PersonnePhysique $personnePhysique, array $data): PersonnePhysique

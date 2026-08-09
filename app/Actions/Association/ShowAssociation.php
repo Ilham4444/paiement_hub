@@ -8,7 +8,7 @@ class ShowAssociation
 {
     public function __invoke(Association $association)
     {
-        return response()->json($this->handle($association));
+        return new AssociationResource($this->handle($association));
     }
 
     public function handle(Association $association): Association

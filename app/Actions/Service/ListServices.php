@@ -8,7 +8,7 @@ class ListServices
 {
     public function __invoke()
     {
-        return response()->json($this->handle());
+         return ServiceResource::collection($this->handle());
     }
 
     public function handle()

@@ -11,7 +11,9 @@ class CreatePersonnePhysique
     {
         $personnePhysique = $this->handle($request->validated());
 
-        return response()->json($personnePhysique, 201);
+      return (new PersonnePhysiqueResource($personnePhysique))
+            ->response()
+            ->setStatusCode(201);
     }
 
     public function handle(array $data): PersonnePhysique

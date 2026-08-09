@@ -11,7 +11,7 @@ class UpdateArticle
     {
         $updated = $this->handle($article, $request->validated());
 
-        return response()->json($updated);
+       return new ArticleResource($updated);
     }
 
     public function handle(Article $article, array $data): Article

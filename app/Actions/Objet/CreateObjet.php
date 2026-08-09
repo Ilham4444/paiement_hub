@@ -11,7 +11,9 @@ class CreateObjet
     {
         $objet = $this->handle($request->validated());
 
-        return response()->json($objet, 201);
+       return (new ObjetResource($objet))
+            ->response()
+            ->setStatusCode(201);
     }
 
     public function handle(array $data): Objet

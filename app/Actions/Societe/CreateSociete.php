@@ -11,7 +11,9 @@ class CreateSociete
     {
         $societe = $this->handle($request->validated());
 
-        return response()->json($societe, 201);
+       return (new SocieteResource($societe))
+            ->response()
+            ->setStatusCode(201);
     }
 
     public function handle(array $data): Societe

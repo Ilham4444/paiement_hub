@@ -11,7 +11,7 @@ class UpdateAssociation
     {
         $updated = $this->handle($association, $request->validated());
 
-        return response()->json($updated);
+        return new AssociationResource($updated);
     }
 
     public function handle(Association $association, array $data): Association

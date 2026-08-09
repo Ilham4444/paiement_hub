@@ -3,6 +3,8 @@
 namespace App\Actions\PaymentOrder;
 
 use App\Http\Requests\PaymentOrder\PayPaymentOrderRequest;
+use App\Http\Resources\PaymentOrderResource;
+use App\Http\Resources\PaymentResource;
 use App\Models\Payment;
 use App\Models\PaymentOrder;
 use Illuminate\Support\Str; 
@@ -18,9 +20,9 @@ class PayPaymentOrder
             $payment->addMediaFromRequest('justification')->toMediaCollection('justification');
         }
 
-        return response()->json([
-            'payment' => $payment,
-            'payment_order' => $paymentOrder->fresh(),
+       return response()->json([
+            'payment' => new PaymentResource($payment),
+            'payment_order' => new PaymentOrderResource($paymentOrder->fresh()),
         ], 201);
     }
 

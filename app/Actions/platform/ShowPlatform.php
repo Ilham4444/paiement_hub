@@ -8,7 +8,7 @@ class ShowPlatform
 {
     public function __invoke(Platform $platform)
     {
-        return response()->json($this->handle($platform));
+       return new PlatformResource($this->handle($platform));
     }
 
     public function handle(Platform $platform): Platform

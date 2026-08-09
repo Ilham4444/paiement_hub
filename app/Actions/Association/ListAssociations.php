@@ -8,7 +8,7 @@ class ListAssociations
 {
     public function __invoke()
     {
-        return response()->json($this->handle());
+       return AssociationResource::collection($this->handle());
     }
 
     public function handle()

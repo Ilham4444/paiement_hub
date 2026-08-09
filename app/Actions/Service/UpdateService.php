@@ -11,7 +11,7 @@ class UpdateService
     {
         $updated = $this->handle($service, $request->validated());
 
-        return response()->json($updated);
+        return new ServiceResource($updated);
     }
 
     public function handle(Service $service, array $data): Service

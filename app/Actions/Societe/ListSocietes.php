@@ -8,7 +8,7 @@ class ListSocietes
 {
     public function __invoke()
     {
-        return response()->json($this->handle());
+         return SocieteResource::collection($this->handle());
     }
 
     public function handle()

@@ -8,7 +8,7 @@ class ShowPaymentOrder
 {
     public function __invoke(PaymentOrder $paymentOrder)
     {
-        return response()->json($this->handle($paymentOrder));
+       return new PaymentOrderResource($this->handle($paymentOrder));
     }
 
     public function handle(PaymentOrder $paymentOrder): PaymentOrder

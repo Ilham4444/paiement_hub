@@ -8,7 +8,7 @@ class ShowPersonnePhysique
 {
     public function __invoke(PersonnePhysique $personnePhysique)
     {
-        return response()->json($this->handle($personnePhysique));
+      return new PersonnePhysiqueResource($this->handle($personnePhysique));
     }
 
     public function handle(PersonnePhysique $personnePhysique): PersonnePhysique

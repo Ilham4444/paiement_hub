@@ -8,7 +8,7 @@ class ListPayments
 {
     public function __invoke()
     {
-        return response()->json($this->handle());
+         return PaymentResource::collection($this->handle());
     }
 
     public function handle()
