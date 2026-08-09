@@ -16,7 +16,14 @@ class CreatePlatform
             $platform->addMediaFromRequest('logo')->toMediaCollection('logo');
         }
 
-        return response()->json($platform->load('media'), 201);
+         return response()->json([
+            'platform' => $platform,
+            'logo' => [
+                'original' => $platform->getFirstMediaUrl('logo'),
+                'medium' => $platform->getFirstMediaUrl('logo', 'medium'),
+                'small' => $platform->getFirstMediaUrl('logo', 'small'),
+            ],
+        ], 201);
     }
 
     public function handle(array $data): Platform
