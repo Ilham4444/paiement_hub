@@ -1,7 +1,7 @@
 <?php
 
 namespace App\Actions\PaymentOrder;
-
+use App\Http\Resources\PaymentOrder\ShowPaymentOrderResource;
 use App\Http\Requests\PaymentOrder\StorePaymentOrderRequest;
 use App\Models\PaymentOrder;
 
@@ -11,7 +11,7 @@ class CreatePaymentOrder
     {
         $paymentOrder = $this->handle($request->validated());
 
-        return (new PaymentOrderResource($paymentOrder))
+        return (new ShowPaymentOrderResource($paymentOrder))
             ->response()
             ->setStatusCode(201);
     }

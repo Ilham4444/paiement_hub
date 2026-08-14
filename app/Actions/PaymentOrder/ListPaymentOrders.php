@@ -1,14 +1,14 @@
 <?php
 
 namespace App\Actions\PaymentOrder;
-
+use App\Http\Resources\PaymentOrder\ListPaymentOrdersResource;
 use App\Models\PaymentOrder;
 
 class ListPaymentOrders
 {
     public function __invoke()
     {
-       return PaymentOrderResource::collection($this->handle());
+       return ListPaymentOrdersResource::collection($this->handle());
     }
 
     public function handle()

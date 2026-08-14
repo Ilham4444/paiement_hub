@@ -3,8 +3,8 @@
 namespace App\Actions\PaymentOrder;
 
 use App\Http\Requests\PaymentOrder\PayPaymentOrderRequest;
-use App\Http\Resources\PaymentOrderResource;
-use App\Http\Resources\PaymentResource;
+use App\Http\Resources\PaymentOrder\ShowPaymentOrderResource;
+use App\Http\Resources\Payment\ShowPaymentResource;
 use App\Models\Payment;
 use App\Models\PaymentOrder;
 use Illuminate\Support\Str; 
@@ -21,8 +21,8 @@ class PayPaymentOrder
         }
 
        return response()->json([
-            'payment' => new PaymentResource($payment),
-            'payment_order' => new PaymentOrderResource($paymentOrder->fresh()),
+            'payment' => new ShowPaymentResource($payment),
+            'payment_order' => new ShowPaymentOrderResource($paymentOrder->fresh()),
         ], 201);
     }
 
@@ -37,7 +37,7 @@ class PayPaymentOrder
             'date_paiement' => now(),
             'transaction_number' => $data['transaction_number'] ?? null,
             'transaction_reference' => $data['transaction_reference'] ?? null,
-            'processed_by' => auth()->id(),
+            'processed_by' => 1,
         ]);
        
 
