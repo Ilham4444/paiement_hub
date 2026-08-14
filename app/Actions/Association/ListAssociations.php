@@ -1,14 +1,14 @@
 <?php
 
 namespace App\Actions\Association;
-
+use App\Http\Resources\Association\ListAssociationsResource;
 use App\Models\Association;
 
 class ListAssociations
 {
     public function __invoke()
     {
-       return AssociationResource::collection($this->handle());
+       return ListAssociationsResource::collection($this->handle());
     }
 
     public function handle()

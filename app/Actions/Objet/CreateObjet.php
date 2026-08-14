@@ -1,7 +1,7 @@
 <?php
 
 namespace App\Actions\Objet;
-
+use App\Http\Resources\Objet\ShowObjetResource;
 use App\Http\Requests\Objet\StoreObjetRequest;
 use App\Models\Objet;
 
@@ -11,7 +11,7 @@ class CreateObjet
     {
         $objet = $this->handle($request->validated());
 
-       return (new ObjetResource($objet))
+       return (new ShowObjetResource($objet))
             ->response()
             ->setStatusCode(201);
     }

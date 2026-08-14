@@ -1,7 +1,7 @@
 <?php
 
 namespace App\Actions\Societe;
-
+use App\Http\Resources\Societe\UpdateSocieteResource;
 use App\Http\Requests\Societe\UpdateSocieteRequest;
 use App\Models\Societe;
 
@@ -11,7 +11,7 @@ class UpdateSociete
     {
         $updated = $this->handle($societe, $request->validated());
 
-        return new SocieteResource($updated);
+        return new UpdateSocieteResource($updated);
     }
 
     public function handle(Societe $societe, array $data): Societe

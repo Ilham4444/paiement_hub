@@ -1,7 +1,7 @@
 <?php
 
 namespace App\Actions\Article;
-
+use App\Http\Resources\Article\UpdateArticleResource;
 use App\Http\Requests\Article\UpdateArticleRequest;
 use App\Models\Article;
 
@@ -11,7 +11,7 @@ class UpdateArticle
     {
         $updated = $this->handle($article, $request->validated());
 
-       return new ArticleResource($updated);
+       return new UpdateArticleResource($updated);
     }
 
     public function handle(Article $article, array $data): Article

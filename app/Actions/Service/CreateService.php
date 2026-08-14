@@ -1,7 +1,7 @@
 <?php
 
 namespace App\Actions\Service;
-
+use App\Http\Resources\Service\ShowServiceResource;
 use App\Http\Requests\Service\StoreServiceRequest;
 use App\Models\Service;
 
@@ -11,7 +11,7 @@ class CreateService
     {
         $service = $this->handle($request->validated());
 
-        return (new ServiceResource($service))
+        return (new ShowServiceResource($service))
             ->response()
             ->setStatusCode(201);
     }

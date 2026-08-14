@@ -1,7 +1,7 @@
 <?php
 
 namespace App\Actions\Societe;
-
+use App\Http\Resources\Societe\ShowSocieteResource;
 use App\Http\Requests\Societe\StoreSocieteRequest;
 use App\Models\Societe;
 
@@ -11,7 +11,7 @@ class CreateSociete
     {
         $societe = $this->handle($request->validated());
 
-       return (new SocieteResource($societe))
+       return (new ShowSocieteResource($societe))
             ->response()
             ->setStatusCode(201);
     }

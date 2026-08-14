@@ -1,7 +1,7 @@
 <?php
 
 namespace App\Actions\Platform;
-
+use App\Http\Resources\Platform\UpdatePlatformResource;
 use App\Http\Requests\Platform\UpdatePlatformRequest;
 use App\Models\Platform;
 
@@ -16,7 +16,7 @@ class UpdatePlatform
             $updated->addMediaFromRequest('logo')->toMediaCollection('logo');
         }
  
-        return new PlatformResource($updated);
+        return new UpdatePlatformResource($updated);
     }
 
     public function handle(Platform $platform, array $data): Platform

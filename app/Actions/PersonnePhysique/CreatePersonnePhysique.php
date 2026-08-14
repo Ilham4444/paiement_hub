@@ -1,7 +1,7 @@
 <?php
 
 namespace App\Actions\PersonnePhysique;
-
+use App\Http\Resources\PersonnePhysique\ShowPersonnePhysiqueResource;
 use App\Http\Requests\PersonnePhysique\StorePersonnePhysiqueRequest;
 use App\Models\PersonnePhysique;
 
@@ -11,7 +11,7 @@ class CreatePersonnePhysique
     {
         $personnePhysique = $this->handle($request->validated());
 
-      return (new PersonnePhysiqueResource($personnePhysique))
+      return (new ShowPersonnePhysiqueResource($personnePhysique))
             ->response()
             ->setStatusCode(201);
     }

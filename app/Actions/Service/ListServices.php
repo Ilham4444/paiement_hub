@@ -1,14 +1,14 @@
 <?php
 
 namespace App\Actions\Service;
-
+use App\Http\Resources\Service\ListServicesResource;
 use App\Models\Service;
 
 class ListServices
 {
     public function __invoke()
     {
-         return ServiceResource::collection($this->handle());
+         return ListServicesResource::collection($this->handle());
     }
 
     public function handle()

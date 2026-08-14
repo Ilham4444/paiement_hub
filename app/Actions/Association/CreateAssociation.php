@@ -1,7 +1,7 @@
 <?php
 
 namespace App\Actions\Association;
-
+use App\Http\Resources\Association\ShowAssociationResource;
 use App\Http\Requests\Association\StoreAssociationRequest;
 use App\Models\Association;
 
@@ -11,7 +11,7 @@ class CreateAssociation
     {
         $association = $this->handle($request->validated());
 
-           return (new AssociationResource($association))
+           return (new ShowAssociationResource($association))
             ->response()
             ->setStatusCode(201);
     }

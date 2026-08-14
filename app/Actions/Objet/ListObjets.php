@@ -1,14 +1,14 @@
 <?php
 
 namespace App\Actions\Objet;
-
+use App\Http\Resources\Objet\ListObjetsResource;
 use App\Models\Objet;
 
 class ListObjets
 {
     public function __invoke()
     {
-        return ObjetResource::collection($this->handle());
+        return ListObjetsResource::collection($this->handle());
     }
 
     public function handle()

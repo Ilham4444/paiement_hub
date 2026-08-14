@@ -1,7 +1,7 @@
 <?php
 
 namespace App\Actions\Platform;
-
+use App\Http\Resources\Platform\ShowPlatformResource;
 use App\Http\Requests\Platform\StorePlatformRequest;
 use App\Models\Platform;
 
@@ -16,7 +16,7 @@ class CreatePlatform
             $platform->addMediaFromRequest('logo')->toMediaCollection('logo');
         }
 
-         return (new PlatformResource($platform))
+         return (new ShowPlatformResource($platform))
             ->response()
             ->setStatusCode(201);
     }

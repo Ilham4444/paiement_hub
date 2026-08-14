@@ -1,7 +1,7 @@
 <?php
 
 namespace App\Actions\Objet;
-
+use App\Http\Resources\Objet\UpdateObjetResource;
 use App\Http\Requests\Objet\UpdateObjetRequest;
 use App\Models\Objet;
 
@@ -12,7 +12,7 @@ class UpdateObjet
         $updated = $this->handle($objet, $request->validated());
 
         
-        return new ObjetResource($updated);
+        return new UpdateObjetResource($updated);
     }
 
     public function handle(Objet $objet, array $data): Objet

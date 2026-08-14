@@ -1,7 +1,7 @@
 <?php
 
 namespace App\Actions\PersonnePhysique;
-
+use App\Http\Resources\PersonnePhysique\UpdatePersonnePhysiqueResource;
 use App\Http\Requests\PersonnePhysique\UpdatePersonnePhysiqueRequest;
 use App\Models\PersonnePhysique;
 
@@ -11,7 +11,7 @@ class UpdatePersonnePhysique
     {
         $updated = $this->handle($personnePhysique, $request->validated());
 
-          return new PersonnePhysiqueResource($updated);
+          return new UpdatePersonnePhysiqueResource($updated);
     }
 
     public function handle(PersonnePhysique $personnePhysique, array $data): PersonnePhysique

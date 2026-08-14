@@ -1,14 +1,14 @@
 <?php
 
 namespace App\Actions\Societe;
-
+use App\Http\Resources\Societe\ListSocietesResource;
 use App\Models\Societe;
 
 class ListSocietes
 {
     public function __invoke()
     {
-         return SocieteResource::collection($this->handle());
+         return ListSocietesResource::collection($this->handle());
     }
 
     public function handle()
