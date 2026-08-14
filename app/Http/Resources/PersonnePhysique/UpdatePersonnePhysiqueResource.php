@@ -1,11 +1,11 @@
 <?php
 
-namespace App\Http\Resources;
+namespace App\Http\Resources\PersonnePhysique;
 
 use Illuminate\Http\Request;
 use Illuminate\Http\Resources\Json\JsonResource;
 
-class SocieteResource extends JsonResource
+class ShowPersonnePhysiqueResource extends JsonResource
 {
     /**
      * Transform the resource into an array.
@@ -14,16 +14,12 @@ class SocieteResource extends JsonResource
      */
     public function toArray(Request $request): array
     {
-        return [
-            'id' => $this->id,
+         return [
             'name' => $this->name,
-            'if' => $this->if,
-            'ice' => $this->ice,
-            'rc' => $this->rc,
             'phone' => $this->phone,
             'email' => $this->email,
             'address' => $this->address,
-           
+          
         ];
     }
 }

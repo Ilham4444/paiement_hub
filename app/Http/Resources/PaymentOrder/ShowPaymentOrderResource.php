@@ -1,11 +1,11 @@
 <?php
 
-namespace App\Http\Resources;
+namespace App\Http\Resources\PaymentOrder;
 
 use Illuminate\Http\Request;
 use Illuminate\Http\Resources\Json\JsonResource;
 
-class PaymentResource extends JsonResource
+class ShowPaymentOrderResource extends JsonResource
 {
     /**
      * Transform the resource into an array.
@@ -17,12 +17,15 @@ class PaymentResource extends JsonResource
           return [
             'id' => $this->id,
             'reference' => $this->reference,
+            'title' => $this->title,
             'montant' => (float) $this->montant,
+            'montant_restant' => (float) $this->montant_restant,
             'status' => $this->status,
-            'date_paiement' => $this->date_paiement?->toDateTimeString(),
-            'number_transaction' => $this->number_transaction,
-            'reference_transaction' => $this->reference_transaction,
-            'processed_by' => $this->processed_by,
+            'article' => $this->whenLoaded('article', fn () => [
+                'id' => $this->article->id,
+                'name' => $this->article->name,
+            ]),
+
         ];
     }
 }
