@@ -8,6 +8,8 @@ use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Spatie\MediaLibrary\HasMedia;
 use Spatie\MediaLibrary\InteractsWithMedia;
+use Spatie\MediaLibrary\MediaCollections\Models\Media;
+use Illuminate\Database\Eloquent\Relations\MorphTo;
 
 class Payment extends Model implements HasMedia
 {
@@ -21,10 +23,13 @@ class Payment extends Model implements HasMedia
         'status',
         'transaction_reference',
         'transaction_number',
-        'justification',
         'payment_order_id',
         'processed_by',
     ];
+    protected $casts = [
+    'date_paiement' => 'datetime',
+    'montant' => 'decimal:2',
+];
 
     public function registerMediaCollections(): void
     {
